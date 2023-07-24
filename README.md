@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+Welcome to nnserver v2!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+HELLO FRIENDS!! For the past month or so I've been slowly working out all the front and backend kinks with nnexsus-server, and finally came to a realization that it'd be easier to just start over, and so, I have. Everything with nnserver 2.0 is completely revamped, new, or improved from the original. Get ready, this is gonna be long.
 
-## Available Scripts
+***__Changelog:__***
+```diff
+Version 2.0! [Bismuth-Update]
 
-In the project directory, you can run:
+New (comparing from last build, even though everything is new):
++ Folder objects! Folders are no longer just a sidebar decoration! Folders can be access through the fileviewer, just like a file explorer in windows. 
 
-### `npm start`
++ Stackable folders! With folders being an object, it's only a rational idea to make them stackable! Folders can be created, moved, and edited inside of other folders now! 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
++ Folder uploads! Finally, you can upload directly to folders! Not sure how I missed this in the past, but it's official now. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
++ Favorite files revamp! Favoriting files is no longer exclusive to their owner! You can favorite public files, and view them from the new 'Saved Files' tab in the header! 
 
-### `npm test`
++ New authentication system! In the past, authentication was kind of... weak. Personal info was safe, but it was easy to get into others files if you knew the name, but not any more! Session and admin keys have been implemented to secure ALL uploads and changes, or any other account data! 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++ Public files revamp! Sharing files is now even easier! Just right click a file you've uploaded, and hit 'Unlock' to make it public! Then, hit share to direct to the shared page, where you can send the link to others! You can also now track file downloads, or flag and report files. 
 
-### `npm run build`
++ Admin panel! To improve public file security, I've implemented an admin panel backend to simplify administration. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
++ Session and local storage implements! File data is now stored in the session and local storage! This will make repeat vists, and most actions, significantly faster, and less network reliant! You can download your files with only a single request now! 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Changes:
++ Completely rebuilt site design and feel! 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
++ Complete backend rebuild. Every route has been rebuilt and touched up on. Significantly less errors and crashes should be seen. And the fragility of it all has decreased significantly. 
 
-### `npm run eject`
++ Even more secure files. Files from nnserver were originally lost in the ransom event due to them just being basic windows files. Now, every account has its own folder for files in a secure SFTP directory under a linux based filesystem! 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
++ More context! The context pop-up will now give much more information on progress, alerts, errors, or anything else! Mainly, the new upload/download progress bar should improve the flow feel for use of the site. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
++ Fixed network requests! All network requests finally only happen once, no more bugs or loops, and no more firing 3 times for no reason! 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
++ Huge decrease in loading time for site and network resources. Massive decrease on network resources in both as well. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Removed:
+- Removed profile pictures. What was the point, honestly? 
 
-## Learn More
+- Removed 'Discord Files', as it was pretty much unused. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Mobile designs are not yet available. 
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+***__What's to come?__***
+```ini
+[Multi-file selectors] - you should be able to move/download/mass action across multiple files. That'll be top priority next update.
+[Backend routing] - file transfer speed is my next big improvement. This won't be a site update, but instead an infrastructure one.
+[Folder colors] - folders should have colors!! Maybe a hsv/rbg slider.
+[File renaming] - this is priority for next time, too.
+[More sorting methods] - inverse methods for recent/saved, and by type/downloads/alphabetical are in the near future
+```
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*one last note, video thumbnails and fullsize previews are two things i could not hammer out before the update, but ill update here when theyre implemented*
