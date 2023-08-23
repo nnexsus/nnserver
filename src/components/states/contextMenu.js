@@ -195,7 +195,7 @@ const ContextMenu = () => {
 
     const download = (filename) => {
         const username = Cookies.get('dXNlcm5hbWU=') //this is the display username, like nnexsus to us
-        saveAs(`https://api-nnexsus-server.cfd/api/get/user/acfile/${username}/${filename}`, `${filename}`)
+        saveAs(`https://arina.lol/api/get/user/acfile/${username}/${filename}`, `${filename}`)
         dispatch({type: 'update_message', message: 'Downloading File...'})
     }
 

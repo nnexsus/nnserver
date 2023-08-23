@@ -258,8 +258,10 @@ const FolderViewer = () => {
         }, [files])
 
 
-        const download = (link, name, type) => {
-            saveAs(link, `${name}.${type}`)
+        const download = (filename) => {
+            const username = Cookies.get('dXNlcm5hbWU=') //this is the display username, like nnexsus to us
+            saveAs(`https://arina.lol/api/get/user/acfile/${username}/${filename}`, `${filename}`)
+            dispatch({type: 'update_message', message: 'Downloading File...'})
         }
 
       const del = (filename) => {

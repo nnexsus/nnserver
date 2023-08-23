@@ -170,7 +170,7 @@ const SingleFile = () => {
     }, [file, setFile])
 
     const download = (filename, downloads) => {
-        saveAs(`https://api-nnexsus-server.cfd/api/get/user/acfile/${filename}`, `${filename}`)
+        saveAs(`https://arina.lol/api/get/user/acfile/${filename}`, `${filename}`)
         dispatch({type: 'update_message', message: 'Downloading File...'})
         axios.post(`https://${address.address}/api/download/${downloads}/${filename}`)
     }
