@@ -20,6 +20,7 @@ import Dashboard from "./components/admin/dashboard";
 import Folder from "./components/mainpages/folder";
 import Toaster from "./components/states/toaster";
 import Preview from "./components/states/preview";
+import Canna from "./components/mainpages/canna";
 
 const Home = lazy(() => import('./components/mainpages/home'));
 
@@ -56,6 +57,7 @@ function App() {
           <Route path="/tos" element={<Tos/>}/>
           <Route path="/home" element={<Home/>}/>
           <Route path="/admin" element={<Dashboard/>}/>
+          <Route path="/canna" element={<Canna/>}/>
           <Route path="*" element={<div style={{width: '100%'}}><h1 style={{color: 'white', textAlign: 'center', fontFamily: 'Comp'}}>Page not found.</h1></div>}/>
         </Routes>
     </div>
