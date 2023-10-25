@@ -388,7 +388,7 @@ const Folder = () => {
                             return (
                             <div key={folder.id} style={{display: 'grid', gridTemplateColumns: '80% 20%'}}>
                                 <a style={{textDecoration: 'none'}} href={`/folder/${folder.folderid}`}>
-                                    <div className='folder' style={{backgroundImage: 'url(/folder.webp)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}>
+                                    <div className='folder' style={{backgroundImage: 'url(/folder.webp)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundColor: `${folder.color?.split('.')[1]}`}}>
                                             <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}} id={folder.id} onDragOver={(e) => onDragOver(e, e.currentTarget.id)} onDrop={(e) => onDrop(e, e.currentTarget.id)}>
                                                 <p>{folder.displayname}</p>
                                             </div>

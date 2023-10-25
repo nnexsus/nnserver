@@ -135,45 +135,6 @@ const Wrapper = styled.div`
         padding: 5px;
         border: solid var(--accentThemeDarker) 2px;
     }
-    .file {
-        width: 100%;
-        aspect-ratio: 1;
-        padding: 0px;
-        margin: 5px;
-
-        display: flex;
-        flex-direction: column-reverse;
-
-        border: solid var(--accentTheme) 1px;
-        background: var(--baseThemeEvenDarker);
-        color: white;
-        text-align: center;
-        transition: 0.1s ease-in-out;
-        z-index: 0;
-        overflow: hidden;
-        image-rendering: pixelated;
-        :hover {
-            background: var(--baseThemeDarker);
-            border: solid var(--accentThemeDarker) 1px;
-            transform: scale(1.025);
-            z-index: 5;
-        }
-        :active {
-            background: var(--baseTheme);
-            border: solid var(--accentThemeEvenDarker) 1px; 
-        }
-        p {
-            text-shadow: 0 0 3px black;
-            font-size: 13px;
-        }
-    }
-    .mediaFrame {
-        background-color: white;
-        margin: auto;
-        width: 95%;
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
     .quick-star, .quick-download, .quick-delete, .quick-share, .quick-private {
         cursor: pointer;
         aspect-ratio: 1/1;
@@ -418,6 +379,13 @@ const Account = () => {
         })
     }
 
+    const changeColor = (color, color2, color3) => {
+        localStorage.setItem('defaultTheme', `${color}`)
+        localStorage.setItem('defaultThemeDarker', `${color2}`)
+        localStorage.setItem('defaultThemeEvenDarker', `${color3}`)
+        dispatch({type: 'update_message', message: "Theme updated (refresh to apply)!"})
+    }
+
     return (
         <Wrapper>
             <div>
@@ -438,14 +406,33 @@ const Account = () => {
                                     <div className="mask half">
                                         <div className="fill"></div>
                                     </div>
-                                    <div className="inside-circle"> {usage.percentUsed * 100}% </div>
+                                    <div style={{zIndex: 1}} className="inside-circle"> {usage.percentUsed * 100}% </div>
                                 </div>
                             </div>
                         </RadialProgress>
                         <p>If you need additional storage, please contact <i>nnexsus.service@gmail.com</i> with the header: <i>Storage Addition Needed for nnexsus-server</i>.</p>
                     </div>
-                <div className='settings' style={{backgroundColor: 'var(--baseThemeEvenDarker)'}}>
+                <div className='settings' style={{backgroundColor: 'var(--baseThemeEvenDarker)', flexDirection: 'column'}}>
                     <h2>Account Options</h2>
+
+                    <div className="color-selector" style={{display: 'flex', border: 'groove black 2px', padding: '3px', backgroundColor: 'var(--accentThemeEvenDarker)'}}>
+                        <h4>Default Color (requires refresh after change)</h4>
+                        <div style={{background: 'var(--baseThemeEvenDarker)', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)'}}>
+                            <button title='Status Code Green (Default)' className={'#03fc17 #0cab31 #07611c'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#03fc17', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Dessert Cherry Red' className={'#F94144 #ba2326 #7d1314'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#F94144', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Watercolor Canvas Orange' className={'#F3722C #c4581d #994314'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#F3722C', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Crayon Collage Orange' className={'#F9844A #cc6735 #853f1c'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#F9844A', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Sweet Spring Orange' className={'#F8961E #d47d13 #a15d0b'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#F8961E', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Specular Sunset Yellow' className={'#F9C74F #d4a73b #917123'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#F9C74F', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Summer Leafbud Green' className={'#90BE6D #6c944d #415c2d'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#90BE6D', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Carribean Shore Seagreen' className={'#43AA8B #328f73 #216651'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#43AA8B', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Frozen River Blue' className={'#4D908E #397371 #244f4e'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#4D908E', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Midday Icicle Blue' className={'#577590 #415a70 #2d4154'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#577590', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Spring Sky Blue' className={'#277DA1 #1c6b8c #13536e'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#277DA1', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                            <button title='Dark Lily Purple' className={'#4e27a1 #3c1b85 #2a1061'} onClick={(e) => changeColor(e.currentTarget.classList[0], e.currentTarget.classList[1], e.currentTarget.classList[2])} style={{background: '#4e27a1', width: '30px', height: '30px', borderRadius: '50%'}}></button>
+                        </div>
+                    </div>
+
                     <button className='password' onClick={() => sendEmail()}><p>Change Password</p></button>
                     <button className='delete' onClick={() => setDel(!del)}><p>Delete Account</p></button>
                     {del ? 

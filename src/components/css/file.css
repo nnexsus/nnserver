@@ -1,0 +1,224 @@
+.fileviewer-container {
+    margin: 15px;
+    border: solid black 2px;
+    padding: 15px;
+    height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.hidden {
+    display: none;
+}
+
+.searchbar {
+    background-color: var(--accentThemeDarker);
+    padding: 5px;
+    margin: 10px;
+    border: black solid 1px;
+    transition: 0.3s ease-in-out;
+    font-family: "Comp";
+}
+.searchbar:hover {
+    background-color: var(--accentTheme);
+}
+
+.fileContainer {
+    display: grid;
+    grid-template-columns: repeat(5, calc(90% / 5));
+    gap: 15px;
+    align-items: center;
+}
+
+.file {
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0px;
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    background-color: var(--baseThemeEvenDarker);
+    color: white;
+    text-align: center;
+    transition: 0.1s ease-in-out;
+    z-index: 0;
+    overflow: hidden;
+    image-rendering: pixelated;
+}
+
+.file:hover {
+    background-color: var(--baseThemeDarker);
+    background-size: 100%;
+    border: solid var(--accentThemeDarker) 1px;
+    transform: scale(1.025);
+    z-index: 5;
+}
+
+.file:active {
+    background-color: var(--baseTheme);
+    border: solid var(--accentThemeEvenDarker) 1px;
+}
+
+.file p {
+    text-shadow: 0 0 3px black;
+    font-size: 13px;
+}
+
+.mediaFrame {
+    background-color: white;
+    margin: auto;
+    width: 95%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.quick-star, .quick-download, .quick-delete, .quick-share {
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    box-shadow: 0 0 2px 0px black;
+    padding: 3px;
+    transition: 0.1s ease;
+}
+
+
+.quick-star {
+    background: var(--darkerTeal); 
+}
+.quick-star:hover {
+    background: var(--evenDarkerTeal); 
+}
+
+
+.quick-download {
+    background: var(--darkerBlue); 
+}
+.quick-download:hover {
+    background: var(--evenDarkerBlue); 
+}
+
+
+.quick-share {
+    background: var(--10purple); 
+}
+.quick-share:hover {
+    background: var(--60); 
+}
+
+
+.quick-delete {
+    background: var(--fsLarge); 
+}
+.quick-delete:hover {
+    background: var(--fsVeryLarge); 
+}
+
+
+.sort-button {
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    box-shadow: 0 0 2px 0px black;
+    border: solid 1px var(--accentTheme);
+    padding: 3px;
+    transition: 0.1s ease;
+    background: var(--accentThemeDarker);
+}
+.sort-button:hover {
+    background: var(--accentTheme);
+}
+.sort-button:active {
+    background: var(--accentThemeEvenDarker);
+}
+
+.sort-div p, .refresh-div p, .downall-div p {
+    transform: scaleY(0);
+    height: 0px;
+    transition: 0.3s ease;
+}
+.sort-div:hover p, .refresh-div:hover p, .downall-div:hover p {
+    height: 20px;
+    transform: scaleY(1);
+}
+
+.refresh {
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    border: solid 1px var(--accentTheme);
+    transition: 0.1s ease-in-out;
+    background: var(--accentThemeDarker);
+}
+.refresh:hover {
+    background: var(--accentTheme);
+}
+.refresh:active {
+    background: var(--accentThemeEvenDarker);
+}
+
+
+
+
+
+
+
+
+
+.silent-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.silent-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.silent-scroll::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background-color: darkslateblue;
+}
+
+.silent-scroll::-webkit-scrollbar-thumb:hover {
+    filter: brightness(0.95);
+}
+
+.file {
+    background-size: 90%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    border: solid var(--accentTheme) 1px;
+    outline: 0px var(--accentTheme) solid;
+}
+
+.selected .file {
+    outline: 5px var(--accentTheme) solid;
+}
+
+.rename-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5%;
+
+    transition: 0.3s ease;
+}
+
+.rename-div:hover {
+    scale: 1.05;
+}
+
+.rename-input {
+    background-color: var(--accentTheme);
+    width: 100%;
+    border: groove 2px black;
+
+    transition: 0.3s ease;
+    font-family: 'Comp';
+}
+
+.rename-input:hover {
+    background-color: var(--accentThemeDarker);
+}
+
+.rename-input:active {
+    background-color: var(--accentThemeEvenDarker);
+}

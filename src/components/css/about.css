@@ -1,0 +1,92 @@
+.about-container {
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 10px;
+    border: solid var(--accentTheme) 1px;
+    border-radius: 10px;
+    background-color: var(--baseThemeDarker);
+    text-align: center;
+    max-width: 90%;
+    margin-top: 60px;
+    transform: translate(0px, -25px);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about {
+    padding: 8px;
+    background-color: var(--baseThemeEvenDarker);
+    border-radius: 10px;
+    width: 80%;
+    border: solid 2px var(--accentTheme);
+    transition: 0.3s ease-in-out;
+}
+.about .aboutTitle {
+    background-color: var(--accentThemeEvenDarker);
+    border-radius: 15px;
+}
+
+.about-container a {
+    text-decoration: none;
+    color: var(--accentThemeDarker);
+    margin: 5px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mediaLink {
+    margin: 10px;
+    padding: 5px 75px 5px 75px;
+    border: black solid 2px;
+    background-color: var(--accentThemeDarker);
+    height: 100%;
+    transition: 0.3s ease;
+}
+.mediaLink h2 {
+    color: var(--accentThemeDarker);
+    background-color: var(--baseThemeEvenDarker);
+    transition: 0.3s ease;
+    letter-spacing: 1px;
+}
+.mediaLink :hover {
+    scale: 1.025;
+    background-color: var(--accentTheme);
+}
+.mediaLink:hover h2 {
+    color: var(--accentTheme);
+    letter-spacing: 3px;
+}
+
+.daPlug {
+    margin-top: 40px;
+    width: 70%;
+    color: white;
+    background-color: var(--baseThemeEvenDarker);
+    padding: 10px;
+    border: var(--accentTheme) solid 1px;
+}
+
+
+.faq {
+    margin: 20px;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+
+.faq-div {
+    margin: 10px;
+    padding: 5px;
+    background-color: var(--baseThemeEvenDarker);
+    border: solid var(--accentTheme) 1px;
+}
+
+.faq-div p, .faq-div h4 {
+    color: white;
+}

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Users from "./users";
 import Flags from "./flagged";
+import Users from "./users";
 
 const Wrapper = styled.div`
 

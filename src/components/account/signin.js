@@ -1,11 +1,12 @@
-import styled from 'styled-components';
 import { useContext, useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router';
-import bcrypt from 'bcryptjs';
-import address from '../config.json';
+import styled from 'styled-components';
 import Cookies from 'js-cookie';
+import bcrypt from 'bcryptjs';
+import axios from 'axios';
+
 import { LinkContext } from '../states/context';
+import address from '../config.json';
 
 const Wrapper = styled.div`
 
@@ -122,7 +123,7 @@ const Signin = () => {
                 if(response.status !== 200) {
                     dispatch({type: 'update_message', message: response.data})
                     return
-                }
+                } else {
                     Cookies.set('dXNlcm5hbWU=', response.data.username)
                     Cookies.set('cG9zdFVzZXJuYW1l', response.data.postToken)
                     Cookies.set('cGZw', response.data.pfp)
@@ -135,7 +136,8 @@ const Signin = () => {
                     setTimeout(() => {
                         navigate('/home')
                     }, [1000])
-                })
+                }
+            })
         })
     }
 
@@ -146,7 +148,7 @@ const Signin = () => {
                     <input type={"text"} placeholder="Username/Email" name='username' onChange={handleInput}/>
                     <input type={showpass ? "text" : "password"} placeholder="Password" name='password' onChange={handleInput}/> 
                     <button type='button' value={"none"} onClick={visible} className='showpass'>Show Password</button>
-                    <button type='submit' onClick={() => console.log("clicked")}>Sign In</button>
+                    <button type='submit'>Sign In</button>
                 </form>
                 <p>This site uses cookies to sign in.</p>
                 <a href='/forgot'><p>Forgot Password?</p></a>

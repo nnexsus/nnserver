@@ -1,145 +1,9 @@
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-
-    margin: 60px 70px 0 70px;
-
-    .footer {
-        display: grid;
-        grid-template-columns: repeat(2,50%);
-        background-color: var(--baseThemeEvenDarker);
-        padding: 0 30px 10px 30px;
-        
-        border: solid 2px var(--accentTheme);
-
-    .social, .about, .linkContainer, .other {
-        font-family: "Comp";
-    }
-    h1, p, li{
-        color: white;
-    }
-    li {
-        list-style-type: none;
-        margin-bottom: 8px;
-        margin-left: -30px;
-        text-indent: 15px;
-    }
-    .linkContainer {
-        text-align: right;
-        padding-right: 5px;
-    }
-    .links {
-        display: grid;
-        grid-template-columns: repeat(3, 33%);
-        a {
-            background-color: var(--baseThemeEvenDarker);
-            margin: 3px;
-            border: solid 2px var(--accentTheme);
-            padding-right: 5px;
-            transition: 0.2s ease-in-out;
-            text-decoration: none;
-            :hover {
-                background-color: var(--baseThemeDarker);
-                border: solid 2px var(--accentThemeDarker);
-            }
-            :active {
-                background-color: var(--baseTheme);
-                border: solid 2px var(--accentThemeEvenDarker);                
-            }
-        }
-        .gridSpacer {
-            grid-column: 1;
-            grid-row-start: 1;
-            grid-row-end: 4;
-        }
-    }
-    .social {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row: 3;
-        display: flex;
-        margin-left: -10px;
-
-        img {
-            width: 40px;
-            height: 40px;
-            background-color: var(--baseThemeDarker);
-            padding: 0px;
-            border: solid 2px black;
-            margin: 15px 10px 0 10px;
-            box-shadow: 0px 0px 0px 3px white;
-            transition: 0.4s ease-in-out;
-
-            :hover {
-                background-color: var(--accentTheme);
-                box-shadow: 0px 0px 0px 8px white;
-                padding: 5px;
-            }
-        }
-    }
-
-    .other {
-        grid-column-start: 2;
-        grid-column-end: 3;
-        grid-row: 3;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin: 4px 0px 20px 0px;
-
-        a {
-            background-color: var(--baseThemeEvenDarker);
-            margin: 10px;
-            padding: 3px;
-            color: var(--10blue);
-            border: solid 2px black;
-            transition: 0.4s ease-in-out;
-
-            :hover {
-                background-color: var(--accentTheme);
-            }
-        }
-
-        p {
-            font-size: 12px;
-        }
-    }
-
-    }
-
-    .expand {
-        letter-spacing: 1px;
-        :hover {
-            letter-spacing: 5px;
-        }
-    }
-
-
-    @media screen and (max-width: 860px) {
-        margin: 0 1% 0 1%;
-        .footer {
-            --aug-t-extend1: 30%;
-        }
-    }
-
-    @media screen and (max-width: 675px) {
-        margin: 0 1% 0 1%;
-        .footer {
-            --aug-t-extend1: 30%;
-            .other {
-                grid-column-start: 1;
-                grid-column-end: 3;
-                grid-row: 4;
-                margin: 5px -20px 15px 3px;
-            }
-        }
-    }
-`;
+import './css/footer.css';
 
 const Footer = () => {
 
     return (
-        <Wrapper>
+        <div className='footer-container'>
             <div className='footer'>
                 <div className='about'>
                     <h1>About</h1>
@@ -175,7 +39,7 @@ const Footer = () => {
                     <a href="/tos"><p>Terms of Service</p></a>
                 </div>
             </div>
-        </Wrapper>
+        </div>
     )
 }
 

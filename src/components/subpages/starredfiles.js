@@ -181,7 +181,6 @@ const StarredFiles = () => {
                     setFiles(response.data)
                 })
             } else {
-                console.log(JSON.parse(localStorage.getItem('favoriteStore')))
                 setFiles(JSON.parse(localStorage.getItem('favoriteStore')))
             }
         }, [files])
@@ -252,7 +251,7 @@ const StarredFiles = () => {
             <div style={{margin: '0 10%', background: 'var(--baseThemeDarker)', border: 'solid var(--accentTheme) 1px', padding: '30px'}}>
                 <div style={{display: 'flex', height: '10vh', width: '100%', padding: '10px', alignItems: 'center', justifyContent: 'center'}}>
                     <img style={{aspectRatio: '1/1', padding: '10px', opacity: '0.3'}} alt='decor' height={'70%'} src='/starFilled.webp'/>
-                    <h1 className='title' style={{color: 'white', textAlign: 'center', fontFamily: 'Comp', whiteSpace: 'nowrap'}}>Starred Files</h1>
+                    <h1 className='title' style={{color: 'white', textAlign: 'center', fontFamily: 'Comp', whiteSpace: 'nowrap'}}>Favorited Files</h1>
                     <img style={{aspectRatio: '1/1', padding: '10px', opacity: '0.3'}} alt='decor' height={'70%'} src='/starFilled.webp'/>
                 </div>
                 <div className='fileContainer' style={{border: 'solid var(--accentTheme) 1px', background: 'var(--baseTheme)', padding: '20px'}}>

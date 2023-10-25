@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import { saveAs } from "file-saver";
 
 import { LinkContext } from "./context";
 import address from '../config.json';
-import { useState } from "react";
 
 const Wrapper = styled.div`
     .open-container {
@@ -166,7 +165,7 @@ const UserContextMenu = () => {
     }
 
     const getMetric = () => {
-        axios.get(`https://${address.address}/api/admin/getusermetric/${state.contextID.split(" ")[2]}/${username}/${sesk}/${adminkey}`, {headers: {'content-type': "application/json"}}).then((response) => {
+        axios.get(`https://${address.address}/api/admin/getusermetric/${state.contextID[0].split(" ")[2]}/${username}/${sesk}/${adminkey}`, {headers: {'content-type': "application/json"}}).then((response) => {
             setUsersize(response.data)
         })
     }
@@ -178,7 +177,7 @@ const UserContextMenu = () => {
       } else {
         document.getElementById('usercontext').classList.add('context-show')
         document.getElementById('usercontext').classList.remove('context-hide')
-        axios.get(`https://${address.address}/api/admin/getusermetric/${state.contextID.split(" ")[2]}/${username}/${sesk}/${adminkey}`, {headers: {'content-type': "application/json"}}).then((response) => {
+        axios.get(`https://${address.address}/api/admin/getusermetric/${state.contextID[0].split(" ")[2]}/${username}/${sesk}/${adminkey}`, {headers: {'content-type': "application/json"}}).then((response) => {
             setUsersize(response.data)
         })
       }
@@ -187,8 +186,8 @@ const UserContextMenu = () => {
         <Wrapper>
             <div id="usercontext" className="open-container context-hide" style={{position: 'absolute', top: `${state.contextLoc[1]}px`, left: `${state.contextLoc[0]}px`}}>
                 <div className="info-container">
-                    <p style={{color: 'white', background: 'black', border: 'solid white 2px', textAlign: 'center', padding: '3px'}}>{state.contextID.split(" ")[0]}</p>
-                    <p style={{color: 'white', background: 'black', border: 'solid white 2px', textAlign: 'center', padding: '3px'}}>{state.contextID.split(" ")[1]}</p>
+                    <p style={{color: 'white', background: 'black', border: 'solid white 2px', textAlign: 'center', padding: '3px'}}>{state.contextID[0].split(" ")[0]}</p>
+                    <p style={{color: 'white', background: 'black', border: 'solid white 2px', textAlign: 'center', padding: '3px'}}>{state.contextID[0].split(" ")[1]}</p>
                     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', marginLeft: '5px', background: 'var(--baseThemeEvenDarker)', border: 'solid black 2px', margin: '4px'}}>
                         <img width={'25px'} height={'25px'} className={`${state.contextID}`} src={`${state.contextType[5] === "1" ? "/starFilled.webp" : "/starEmpty.webp" }`} alt={`is ${state.contextID} activated`}/>
                         <p style={{marginLeft: '5px'}}>{`${state.contextType[5] === "1" ? "Activated" : "Not Activated" }`}</p>

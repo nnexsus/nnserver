@@ -131,7 +131,6 @@ const Signup = () => {
 
             axios.post(`https://${address.address}/api/createuser`, data, {headers: {'content-type': "application/json"}}).then((response) => {
                 if (response.status !== 200) {
-                    console.log(response.data)
                     dispatch({type: 'update_message', message: response.data})
                     return
                 }

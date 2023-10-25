@@ -15,19 +15,6 @@ export const reducer = (state, action) => {
                 ...state,
                 toaster: action.toaster
             }
-        case 'update_context':
-            return {
-                ...state,
-                context: true,
-                contextID: action.contextID,
-                contextLoc: action.contextLoc,
-                contextType: action.contextType
-            }
-        case 'update_contextMenu':
-            return {
-                ...state,
-                context: false
-            }
         case 'update_previewLink':
             return {
                 ...state,
@@ -43,19 +30,6 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 users: action.users
-            }
-        case 'update_userContext':
-            return {
-                ...state,
-                userContext: true,
-                contextID: action.contextID,
-                contextLoc: action.contextLoc,
-                contextType: action.contextType
-            }
-        case 'update_userContextMenu':
-            return {
-                ...state,
-                userContext: false
             }
         case 'update_progress':
             return {
@@ -76,14 +50,9 @@ export const reducer = (state, action) => {
 export const initState = {
     toaster: false,
     message: "",
-    context: false,
-    contextID: '',
-    contextType: ['empty', 0, 100, 'no date'],
-    contextLoc: [0, 0],
     preview: false,
     previewLink: '/',
     users: [],
-    userContext: false,
     progress: 0,
     uploading: false
 }

@@ -1,0 +1,131 @@
+.open-container {
+    flex-direction: row-reverse;
+    align-items: stretch;
+    z-index: 9;
+    transition: 0.3s ease;
+    animation: opencontext 0.5s 0.1s forwards;
+    transform: scaleY(0);
+    transform-origin: top left;
+}
+
+@keyframes opencontext {
+    0% {
+        transform: scaleY(0);
+    } 100% {
+        transform: scaleY(1);
+    }
+}
+
+.context-container {
+    display: flex;
+    flex-direction: column;
+    
+    border: solid black 2px;
+    background-color: var(--baseThemeEvenDarker);
+
+    overflow: hidden;
+    z-index: 10;
+}
+
+.context-button {
+    display: flex;
+    align-items: center;
+
+    height: 30px; 
+    padding: 2px;
+    margin: 2px 3px;
+    cursor: pointer;
+
+    border: groove 2px black;
+    outline: 1px black solid;
+
+    background-color: var(--accentTheme);
+    image-rendering: pixelated;
+
+    transition: 0.3s ease;
+    overflow: hidden;
+
+    color: black;
+}
+.context-button:hover {
+    border: solid var(--baseThemeDarker) 2px;
+    background-color: var(--accentThemeDarker);
+    scale: 1.1;
+    margin: 7px 3px;
+}
+.context-button:active {
+    border: solid var(--baseTheme) 2px;
+    background-color: var(--baseThemeEvenDarker);
+    scale: 0.95;
+}
+
+.contextmenu-container a {
+    display: flex;
+    align-items: center;
+}
+
+.contextmenu-container p {
+    margin-left: 10px;
+}
+
+.contextmenu-container .download:hover {
+        background-color: var(--darkerBlue);
+        animation: downloadHover 0.2s ease-in-out;
+    }
+.contextmenu-container .delete:hover {
+        background-color: var(--fsVeryLarge);
+        animation: deleteHover 0.2s ease-in-out;
+    }
+.contextmenu-container .share:hover {
+        background-color: var(--accentThemeDarker);
+        animation: shareHover 0.2s ease-in-out;
+    }
+.contextmenu-container .favorite:hover {
+        background-color: var(--darkerTeal);
+        animation: favoriteHover 0.2s ease-in-out;
+    }
+@keyframes downloadHover {
+        0% {
+            background-color: var(--accentTheme);
+    }
+        100% {
+            background-color: var(--darkerBlue);
+    }
+}
+@keyframes deleteHover {
+        0% {
+            background-color: var(--accentTheme);
+    }
+        100% {
+            background-color: var(--fsVeryLarge);
+    }
+}
+@keyframes shareHover {
+        0% {
+            background-color: var(--accentTheme);
+    }
+        100% {
+            background-color: var(--accentThemeDarker);
+    }
+}
+@keyframes favoriteHover {
+        0% {
+            background-color: var(--accentTheme);
+    }
+        100% {
+            background-color: var(--darkerTeal);
+    }
+}
+.info-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--baseThemeDarker);
+    border: solid black 2px;
+}
+.context-hide {
+    height: 20%;
+    display: none;
+}
+.context-show {
+    display: flex;
+}

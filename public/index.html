@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./logofull.webp" />
+    <link rel="icon" href="%PUBLIC_URL%/logosmall.png" />
     <meta name="viewport" content="initial-scale=1" />
     <meta name="theme-color" content="rgba(3,252,23,1)" />
     <meta
@@ -10,23 +10,10 @@
       content="nnserver is a private cloud file hosting server."
     />
     <meta name="keywords" content="nnexsus, nexsus, nexus, nnexus, _nnexsus, nnserver, server, drive, cloud, hosting, file">
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logofull.webp" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logosmall.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>nnserver</title>
     <style>
-      ::-webkit-scrollbar {
-          height: 5px;
-          width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-          box-shadow: 0 0 5px black inset;
-          background: linear-gradient(0deg, rgba(0,0,0,1) 24%, rgba(7,97,28,1) 24%, rgba(7,97,28,1) 49%, rgba(12,171,49,1) 49%, rgba(12,171,49,1) 76%, rgba(3,252,23,1) 76%);
-      }
-      ::-webkit-scrollbar-thumb {
-          border: solid var(--accentTheme) 2px;
-          box-shadow: 0 0 5px 0px var(--accentTheme);
-          transition: 0.2s ease-in-out;
-      }
       body {
         background-color: var(--baseThemeEvenDarker);
         margin: 0;
@@ -45,11 +32,14 @@
       #root {
         margin: 8px;
       }
+      ::placeholder {
+        color: var(--accentThemeEvenDarker);
+      }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="alert"><b>nnserver is now in v2.0! If there are any issues or bugs, please contact <a href="mailto:nnexsus.service@gmail.com">nnexsus.service@gmail.com</a>!</b></div>
+    <div class="alert"><b>nnserver is now in v2.1! If there are any issues or bugs, please contact <a href="mailto:nnexsus.service@gmail.com">nnexsus.service@gmail.com</a>!</b></div>
     <div id="root"></div>
   </body>
 </html>
