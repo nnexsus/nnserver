@@ -8,177 +8,7 @@ import axios from 'axios';
 import { LinkContext } from '../states/context';
 import address from '../config.json';
 
-const Wrapper = styled.div`
-    a, p, h1, h2, h3, h4, button, form {
-        font-family: Comp;
-        font-variant-caps: petite-caps;
-    }
-    h1, h2 {
-        font-weight: 100;
-    }
-    .form {
-        padding: 20px;
-        margin: 0 auto;
-        background-color: var(--baseThemeEvenDarker);
-        border: solid var(--accentTheme) 2px;
-        margin-top: 10px;
-        text-align: center;
-        color: white;
-    }
-    .formFloat {
-        border: solid 1px black;
-        padding: 0 50px;
-        min-height: 150px;
-        margin: 0 auto;
-        --aug-inlay-bg: var(--baseThemeDarker);
-        --aug-border-all: 1px;
-        --aug-border-bg: rgba(0,0,0,0);
-        filter: drop-shadow(0px 0px 10px black);
-    }
-    .fileForm {
-        width: min-content;
-        margin: 0 auto;
-        margin-top: -15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .fileInput {
-        display: none;
-    }
-    .label {
-        margin-bottom: 7px;
-        padding: 10px;
-        padding-bottom: 13px;
-        inline-size: max-content;
-        padding-right: 1000%;
-        padding-left: 1000%;
-        background: var(--accentThemeEvenDarker);
-        box-shadow: 0px 0px 6px 0px black;
-        font-family: 'Comp';
-        transition: 0.3s ease-in-out;
-        cursor: pointer;
-        :hover {
-            color: black;
-            background-color: var(--accentTheme);
-            transform: scale(1.01);
-            box-shadow: 0px 0px 12px 0px black;
-        }
-    }
-    .submit {
-        background-color: var(--accentThemeEvenDarker);
-        border: solid var(--baseThemeDarker) 1px;
-        padding: 10px;
-        box-shadow: 0px 0px 6px 0px black;
-        cursor: pointer;
-        transition: 0.3s ease-in-out;
-        :hover {
-            background-color: var(--accentTheme);
-            transform: scale(1.1);
-            box-shadow: 0px 0px 12px 0px black;
-        }
-    }
-    .usage {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-image: url('/tri.webp');
-        background-size: contain;
-    }
-    .settings {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    .usage, .settings {
-        margin: 50px;
-        padding: 20px;
-        background-color: var(--baseThemeDarker);
-        font-family: "Comp";
-        color: white;
-        border: solid var(--accentTheme) 1px;
-        button {
-            margin: 10px;
-            background-color: var(--accentThemeDarker);
-            border: var(--baseTheme) solid 2px;
-            padding: 5px;
-            cursor: pointer;
-            transition: 0.1s ease-in-out;
-        }
-        .deleteConfirm {
-            background-color: var(--accentTheme);
-        }
-        input[type=password] {
-            padding: 20px;
-            background-color: var(--accentTheme);
-            margin: 10px;
-            border: solid black 2px;
-            font-family: "Comp";
-            color: var(--accentTheme);
-        }
-    }
-    .password, .delete {
-        :hover {
-            background-color: var(--accentTheme);
-        }
-        :active {
-            background-color: var(--alert);
-        }
-    }
-    .fileContainer {
-        display: grid;
-        grid-template-columns: repeat(5, calc(90% / 5));
-        gap: 15px;
-        align-items: center;
-        background-color: var(--baseTheme);
-        margin: 15px 50px 0;
-        padding: 5px;
-        border: solid var(--accentThemeDarker) 2px;
-    }
-    .quick-star, .quick-download, .quick-delete, .quick-share, .quick-private {
-        cursor: pointer;
-        aspect-ratio: 1/1;
-        box-shadow: 0 0 2px 0px black;
-        padding: 3px;
-        transition: 0.1s ease;
-    }
-    .quick-star {
-        background: var(--darkerTeal); 
-        grid-row: 2;
-        :hover {
-            background: var(--evenDarkerTeal); 
-        }
-    }
-    .quick-download {
-        background: var(--darkerBlue);
-        grid-row: 2;
-        :hover {
-            background: var(--evenDarkerBlue); 
-        }
-    }
-    .quick-share {
-        background: var(--10purple);
-        grid-row: 2;
-        :hover {
-            background: var(--60); 
-        }
-    }
-    .quick-delete {
-        background: var(--fsLarge);
-        grid-row: 2;
-        :hover {
-            background: var(--fsVeryLarge); 
-        }
-    }
-    .quick-private {
-        background: var(--accentRed);
-        grid-row: 1;
-        grid-column: 4;
-        :hover {
-            background: var(--accent); 
-        }
-    }
-`;
+import '../css/account.css';
 
 const RadialProgress = styled.div`
 
@@ -387,13 +217,13 @@ const Account = () => {
     }
 
     return (
-        <Wrapper>
+        <div className='account-container'>
             <div>
                 {usageset ? 
                 <div className='usage'>
                     <h1 style={{fontSize: '54px', color: 'white'}}>Account</h1>
                     <hr style={{height: '0px', width: '100%', border: 'solid var(--accentTheme) 1px'}}/>
-                <div style={{display: 'flex'}}>
+                <div className='account-flex-container' style={{display: 'flex'}}>
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: 'var(--baseThemeEvenDarker)', padding: '8px', border: 'solid 2px var(--baseTheme)'}}>
                         <h2>Storage Used</h2>
                         <label htmlFor="usage">[{(usage.size / 1000000000).toFixed(3)} Gb / {usage.totalSize / 1000000000} Gb]</label>
@@ -448,7 +278,7 @@ const Account = () => {
                 : null}
             </div>
             <div className='fileContainer'>
-                <h1 style={{color: 'white', textAlign: 'center', gridColumn: 'span 5', background: 'var(--baseThemeEvenDarker)', border: 'solid var(--accentTheme) 1px', padding: '10px 0'}}>Public Files</h1>
+                <h1 fileContainerTitle style={{color: 'white', textAlign: 'center', background: 'var(--baseThemeEvenDarker)', border: 'solid var(--accentTheme) 1px', padding: '10px 0'}}>Public Files</h1>
                 {publicP && publicP.length >= 0 ? publicP.map((file) => {
                     var starByAuth = false
                     localStorage.getItem('favs').split(",").forEach((el) => {
@@ -489,7 +319,7 @@ const Account = () => {
                 })
                 : null}
             </div>
-        </Wrapper>
+        </div>
     )
 
 }

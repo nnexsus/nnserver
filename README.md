@@ -1,5 +1,3 @@
-Welcome to nnserver v2!
-
 ***__Changelog:__***
 ```diff
 Version 2.1! [Bismite-Update]

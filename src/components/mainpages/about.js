@@ -20,10 +20,10 @@ const About = () => {
 
                         Enjoy nnserver! 
                     </p>
-                    <img style={{margin: '20px', padding: '10px', background: 'var(--baseThemeDarker)', border: 'solid var(--accentTheme) 1px'}} src='/logofull.webp' width={'50%'} height={'50%'} />
+                    <img style={{margin: '20px', padding: '10px', maxWidth: '500px', background: 'var(--baseThemeDarker)', border: 'solid var(--accentTheme) 1px'}} src='/logofull.webp' width={'50%'} height={'50%'} />
                 </div>
                 <div className='faq'>
-                    <h1 style={{color: 'white', gridColumn: 'span 3'}}>FAQ & Issues</h1>
+                    <h1>FAQ & Issues</h1>
                     <div className='faq-div'>
                         <h4>I uploaded / updated a file and it won't appear!</h4>
                         

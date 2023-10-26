@@ -176,6 +176,17 @@ const Wrapper = styled.div`
             border: solid var(--accentThemeEvenDarker) 1px;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        .form {
+            padding: 0;
+            grid-template-columns: 100%;
+        }
+
+        .form .folders {
+            display: none;
+        }
+    }
 `;
 
 const Folder = () => {

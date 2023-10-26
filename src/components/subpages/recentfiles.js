@@ -39,6 +39,13 @@ const Wrapper = styled.div`
             border: solid 2px var(--accentThemeEvenDarker);
         }
     }
+
+    @media screen and (max-width: 500px) {
+        .fileContainer {
+            display: grid;
+            grid-template-columns: 50% calc(50% - 15px);
+        }
+    }
 `;
 
 const RecentFiles = () => {
@@ -148,7 +155,7 @@ const RecentFiles = () => {
                 <div className='fileContainer'>
                 {files && files.length >= 0 ? files.map((file) => {
                     var starByAuth = false
-                    localStorage.getItem('favs').split(",").forEach((el) => {
+                    localStorage?.getItem('favs')?.split(",")?.forEach((el) => {
                         if (el === file.filename) starByAuth = true;
                     })
                     return (

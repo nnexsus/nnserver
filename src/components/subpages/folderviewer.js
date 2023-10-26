@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
+import styled from 'styled-components';
 import { saveAs } from 'file-saver';
 import Cookies from 'js-cookie';
 import axios from 'axios';
@@ -10,6 +11,15 @@ import ContextMenu from '../states/contextMenu';
 import address from '../config.json';
 
 import '../css/file.css';
+
+const File = styled.div`
+    display: grid;
+    grid-template-columns: ${props => `repeat(${Math.floor(props.innerwidth / 1000) + 5}, calc(100% / ${((props.innerwidth / 1000) + 5)} - 5px))`};
+
+    @media screen and (max-width: 600px) {
+        grid-template-columns: repeat(3, calc(33.3% - 15px));
+    }
+`;
 
 const FolderViewer = () => {
 
@@ -260,9 +270,9 @@ const FolderViewer = () => {
                     )
                 })}
             </div>
-            <div style={{display: 'grid', gridTemplateColumns: '40% 60%', gridTemplateRows: '100%', padding: '10px 0', height: '50px'}}>
+            <div className='fileselectors'>
                 <input autoComplete='false' className='searchbar' id='search' type={"text"} placeholder="Search for files." value={searchTerm} onChange={(e) => setSearchTerm(e.currentTarget.value)}/>
-                <div id='rowSelect' style={{display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', border: 'solid 2px var(--baseTheme)', background: 'var(--baseThemeEvenDarker)', padding: '10px 10px 10px 0'}}>
+                <div id='rowSelect'>
                     <label style={{color: "white", fontFamily: "Comp", marginLeft: "30px"}}>Sort By:</label>
                     <div className='sort-div'><img alt='decor' onClick={(e) => sort(e.currentTarget.id)} id='default' className='sort-button' title='Sort by Default (id), double click to invert.' width={'30px'} src='/default.webp'/><p style={{color: 'white', margin: 0}}>None</p></div>
                     <div className='sort-div'><img alt='decor' onClick={(e) => sort(e.currentTarget.id)} id='uploadDate' className='sort-button' title='Sort by closest sate, double click to sort by furthest date.' width={'30px'} src='/date.webp'/><p style={{color: 'white', margin: 0}}>Date</p></div>
@@ -277,7 +287,7 @@ const FolderViewer = () => {
                     </div>
                 </div>
             </div>
-            <div className='fileContainer'>
+            <File innerwidth={window.innerWidth} className='fileContainer'>
                 {files && files.length > 0 ? files.map((file) => {
                     var starByAuth = false
                     AsyncStorage.getItem('favs', (err, res) => {
@@ -319,7 +329,7 @@ const FolderViewer = () => {
                     )
                 })
                 : null}
-            </div>
+            </File>
         </div>
     )
 }
